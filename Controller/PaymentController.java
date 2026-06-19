@@ -1,6 +1,10 @@
 package Controller;
 
+import Model.PaymentRequest;
+import Model.Transactions;
 import Service.PaymentService;
+
+import java.util.UUID;
 
 public class PaymentController {
     private PaymentService paymentService;
@@ -9,5 +13,7 @@ public class PaymentController {
         this.paymentService = paymentService;
     }
 
-    public
+    public Transactions processPayment(PaymentRequest request, UUID vendingMachineId) {
+        return paymentService.processPayment(request,vendingMachineId);
+    }
 }

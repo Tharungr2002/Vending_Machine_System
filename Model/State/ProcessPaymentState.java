@@ -1,11 +1,13 @@
 package Model.State;
 
+import Model.PaymentRequest;
 import Model.Transactions;
+import Model.VendingMachine;
 
 public class ProcessPaymentState implements VendingMachineState{
 
     @Override
-    public Transactions processPayment(Transactions transactions) {
+    public Transactions processPayment(VendingMachine vendingMachine, PaymentRequest request) {
         return null;
     }
 

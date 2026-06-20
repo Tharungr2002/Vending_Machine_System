@@ -16,4 +16,8 @@ public class PaymentController {
     public Transactions processPayment(PaymentRequest request, UUID vendingMachineId) {
         return paymentService.processPayment(request,vendingMachineId);
     }
+
+    public void cancelPayment(UUID transactionId, UUID machineId) {
+        paymentService.cancelPayment(transactionId, machineId);
+    }
 }

@@ -2,6 +2,8 @@ package Model;
 
 import Model.State.VendingMachineState;
 
+import java.util.UUID;
+
 public class VendingMachine {
     private String location;
     private VendingMachineState currentStatus;
@@ -26,5 +28,9 @@ public class VendingMachine {
 
     public Transactions processPayment(PaymentRequest request) {
         return currentStatus.processPayment(this, request);
+    }
+
+    public void cancelPayment(UUID tranactionId) {
+        return currentStatus.cancelPayment(this, tranactionId);
     }
 }

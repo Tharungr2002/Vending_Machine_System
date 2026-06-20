@@ -4,6 +4,7 @@ import Model.PaymentRequest;
 import Model.State.VendingMachineState;
 import Model.Transactions;
 import Model.VendingMachine;
+import Model.transactionStatus;
 import Repository.PaymentRepository;
 import Repository.VendingMachineRepository;
 
@@ -34,5 +35,20 @@ public class PaymentService {
             System.out.println("payment failed");
         }
         return transactions;
+    }
+
+    public void cancelPayment(UUID transactionId, UUID machineId) {
+        VendingMachine machine = vendingMachineRepository.getMachine(machineId);
+
+        if(machine == null) {
+            System.out.println("No vending machine exists");
+        }
+        Transactions transactions = paymentRepository.getTransaction(transactionId);
+        if(transactions == null) {
+            System.out.println("No transaction exist");
+            return;
+        }
+        machine.cancelPayment(transactionId);
+        transactions.setStatus(transactionStatus.CANCELLED);
     }
 }

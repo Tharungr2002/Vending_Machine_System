@@ -4,6 +4,8 @@ import Model.PaymentRequest;
 import Model.Transactions;
 import Model.VendingMachine;
 
+import java.util.UUID;
+
 public class DispensingState implements VendingMachineState{
 
     @Override

@@ -4,6 +4,8 @@ import Model.PaymentRequest;
 import Model.Transactions;
 import Model.VendingMachine;
 
+import java.util.UUID;
+
 public class ProcessPaymentState implements VendingMachineState{
 
     @Override
@@ -19,5 +21,9 @@ public class ProcessPaymentState implements VendingMachineState{
     @Override
     public String getStateName() {
         return "ProcessPayment";
+    }
+
+    public void cancelPayment(VendingMachine machine , UUID transactionId) {
+
     }
 }

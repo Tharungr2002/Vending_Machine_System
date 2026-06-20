@@ -10,4 +10,8 @@ public class PaymentRepository {
     public void saveTransaction(Transactions transactions) {
         transactionsMap.put(transactions.getId(), transactions);
     }
+
+    public Transactions getTransaction(UUID transactionId) {
+        return transactionsMap.get(transactionId);
+    }
 }

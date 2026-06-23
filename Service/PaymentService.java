@@ -1,19 +1,18 @@
 package Service;
 
-import Model.PaymentRequest;
+import Model.*;
 import Model.State.VendingMachineState;
-import Model.Transactions;
-import Model.VendingMachine;
-import Model.transactionStatus;
 import Repository.PaymentRepository;
 import Repository.VendingMachineRepository;
 
+import java.util.Map;
 import java.util.UUID;
 
 public class PaymentService {
 
     private PaymentRepository paymentRepository;
     private VendingMachineRepository vendingMachineRepository;
+    private InventoryRepository inventoryRepository;
 
     public PaymentService(PaymentRepository paymentRepository) {
         this.paymentRepository = paymentRepository;
@@ -50,5 +49,26 @@ public class PaymentService {
         }
         machine.cancelPayment(transactionId);
         transactions.setStatus(transactionStatus.CANCELLED);
+    }
+    
+    public Double calculatePrice(int quantity) {
+        
+        
+        
+        return ans;
+    }
+
+    public Double calculateAmountInserted(Map<Denomination, Integer> denominations) {
+    }
+
+    public boolean checkAvailable(Double amoountToReturn) {
+    }
+
+    public int checkProductAvailablity(UUID productId,int quantity) {
+        int count = inventoryRepository.getProduct(productId);
+        return count;
+    }
+
+    public void DecereaseProductCount(UUID productId, int quantity) {
     }
 }

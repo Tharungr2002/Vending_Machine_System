@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class PaymentRequest {
     private UUID productId;
-    private int quality;
+    private int quantity;
     private Map<Denomination, Integer> denominations;
 
 
@@ -13,8 +13,8 @@ public class PaymentRequest {
         return productId;
     }
 
-    public int getQuality() {
-        return quality;
+    public int getQuantity() {
+        return quantity;
     }
 
     public Map<Denomination, Integer> getDenominations() {

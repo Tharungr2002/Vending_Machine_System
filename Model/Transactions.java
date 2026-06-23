@@ -24,6 +24,13 @@ public class Transactions {
         this.timestamp = timestamp;
     }
 
+    public Transactions(UUID productId, UUID id) {
+        this.id = UUID.randomUUID();
+        this.productId = productId;
+        this.vendingMachineId = vendingMachineId;
+        this.status = transactionStatus.PENDING;
+    }
+
     public UUID getId() {
         return id;
     }

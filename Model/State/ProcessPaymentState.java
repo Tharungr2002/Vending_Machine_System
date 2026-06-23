@@ -14,11 +14,6 @@ public class ProcessPaymentState implements VendingMachineState{
     }
 
     @Override
-    public void cancelPayment() {
-
-    }
-
-    @Override
     public String getStateName() {
         return "ProcessPayment";
     }

@@ -5,10 +5,22 @@ import Model.State.VendingMachineState;
 import java.util.UUID;
 
 public class VendingMachine {
+    private UUID id;
     private String location;
     private VendingMachineState currentStatus;
     private CashBox cashBox;
 
+    public UUID getId() {
+        return id;
+    }
+
+    public CashBox getCashBox() {
+        return cashBox;
+    }
+
+    public void setCashBox(CashBox cashBox) {
+        this.cashBox = cashBox;
+    }
 
     public String getLocation() {
         return location;
@@ -31,6 +43,6 @@ public class VendingMachine {
     }
 
     public void cancelPayment(UUID tranactionId) {
-        return currentStatus.cancelPayment(this, tranactionId);
+         currentStatus.cancelPayment(this, tranactionId);
     }
 }

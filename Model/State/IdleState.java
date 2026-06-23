@@ -20,7 +20,7 @@ public class IdleState implements VendingMachineState {
             return null;
         }
 
-        Double totalPriceToPay = paymentService.calculatePrice(request.getQuantity());
+        Double totalPriceToPay = paymentService.calculatePrice(request.getQuantity(),request.getProductId());
         Double AmountInserted = paymentService.calculateAmountInserted(request.getDenominations());
 
         Double amountToReturn = AmountInserted-totalPriceToPay;
@@ -30,7 +30,7 @@ public class IdleState implements VendingMachineState {
         }
 
         vendingMachine.setCurrentStatus(new ProcessPaymentState());
-        if(amountToReturn > 0 && !paymentService.checkAvailable(amountToReturn)) {
+        if(amountToReturn > 0 && !paymentService.checkAvailable(amountToReturn, vendingMachine.getId())) {
             System.out.println("Unable to return change ");
         }
 
